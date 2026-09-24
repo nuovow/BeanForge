@@ -1,0 +1,24 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# 插件运行沙箱 (gradlew runIde 生成)
+idea-sandbox/
+
+# 离线验证 (verify/run.sh) 的中间产物
+verify/out/
+verify/out-type/
+verify/out-editor/
+verify/gen-out/
+verify/generated/
+
+# 系统文件
+.DS_Store
+Thumbs.db

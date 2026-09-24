@@ -1,0 +1,11 @@
+# 统一按内容自动判定文本/二进制
+* text=auto
+
+# Gradle / Shell 脚本必须保持 LF, 否则在 Linux/macOS 上无法执行
+gradlew text eol=lf
+gradlew.bat text eol=crlf
+*.sh text eol=lf
+
+# 二进制文件不做换行转换
+*.jar binary
+*.png binary

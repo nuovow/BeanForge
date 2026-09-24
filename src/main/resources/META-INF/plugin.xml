@@ -1,0 +1,53 @@
+<idea-plugin url="https://gitee.com/baomidou/mybatis-plus" require-restart="false">
+    <id>com.nuo.beanforge</id>
+    <name>BeanForge</name>
+    <vendor>nuo</vendor>
+
+    <description><![CDATA[
+      实体转 DTO/VO, 一行快捷键搞定重复劳动。
+      <ul>
+        <li>在实体类里 Alt+Enter: 生成 DTO/VO, 勾选要保留的字段</li>
+        <li>在类引用处 (如 Result&lt;LoginVo&gt;) Alt+Enter: 从实体生成目标类</li>
+        <li>自动去掉 MyBatis / MyBatis-Plus / JPA 持久层注解, 保留字段注释</li>
+        <li>默认加上 Lombok 注解与构造器, 支持手动补充字段</li>
+        <li>类型列是可检索下拉框: 输入字母即筛选 (loc -> LocalDateTime), 非法类型当场标红</li>
+      </ul>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      <h4>0.1.3</h4>
+      <ul>
+        <li>修复双击类型单元格打不开候选、选不中类型</li>
+        <li>每次进入编辑候选恢复为全量, 不再带上一次编辑的残留</li>
+      </ul>
+      <h4>0.1.2</h4>
+      <ul>
+        <li>类型列改成可检索下拉框: 敲字母即时筛选候选, 支持 List&lt;String&gt; / Map&lt;String, Long&gt; / String[] 手写</li>
+        <li>新增类型合法性校验: 非法类型当场标红并阻止离开单元格, 生成前再拦一道</li>
+      </ul>
+      <h4>0.1.1</h4>
+      <ul>
+        <li>修复"下拉框里明明选了实体却报没选中"</li>
+      </ul>
+      <h4>0.1.0</h4>
+      <ul>
+        <li>首个版本: 实体筛选字段生成 DTO/VO</li>
+      </ul>
+    ]]></change-notes>
+
+    <idea-version since-build="202.0" until-build="263.*"/>
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- 光标在实体类里: 生成 DTO/VO -->
+        <intentionAction id="com.nuo.beanforge.GenerateFromEntityIntention">
+            <className>com.nuo.beanforge.intention.GenerateFromEntityIntention</className>
+            <language>JAVA</language>
+        </intentionAction>
+        <!-- 光标在类引用处 (如 Result<LoginVo> 里的 LoginVo): 从实体生成这个类 -->
+        <intentionAction id="com.nuo.beanforge.GenerateTargetClassIntention">
+            <className>com.nuo.beanforge.intention.GenerateTargetClassIntention</className>
+            <language>JAVA</language>
+        </intentionAction>
+    </extensions>
+</idea-plugin>
