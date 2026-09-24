@@ -47,8 +47,18 @@
 ./gradlew buildPlugin
 ```
 
-产物在 `build/distributions/BeanForge-<version>.zip`，
-在 IDEA 里 `Settings → Plugins → ⚙ → Install Plugin from Disk…` 装上即可。
+产物在 `build/distributions/BeanForge-<version>.zip`。
+
+## 安装
+
+把 zip 解压到 IDEA 的插件目录，然后**重启 IDEA**：
+
+```
+%APPDATA%\JetBrains\IntelliJIdea<版本>\plugins\
+```
+
+解压后的结构应该是 `plugins\BeanForge\lib\BeanForge-<version>.jar`
+（zip 内部已经有一层 `BeanForge/`，所以直接解压到 `plugins\` 即可）。
 
 ## 验证
 
